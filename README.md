@@ -1,21 +1,22 @@
-# react-native-swiftui-stacks
+# react-native-swiftui-stacks :pancakes:
 
 ## What is it?
 
 SwiftUI insprired Stacks and Spacer
 
-### Stacks :pancakes: :abcd:
+### Views
 
 - **VStack:** Vertical stack
 - **HStack:** Horizontal stack
 - **ZStack:** Overlay stack
+- **Spacer:** Spacing within Stacks
 
 ## Installation
 
 **Step 1:** Install the package in your React Native project
 
 ```console
-yarn add react-native-swiftui-stacks
+yarn add react-native-stacks
 ```
 
 ## Usage
