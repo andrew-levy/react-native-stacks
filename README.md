@@ -1,14 +1,14 @@
-# react-native-swiftui-stacks :pancakes:
+# react-native-stacks :pancakes:
 
 ## What is it?
 
-SwiftUI insprired Stacks and Spacer
+SwiftUI inspired Stacks and Spacer views
 
 ### Views
 
-- **VStack:** Vertical stack
-- **HStack:** Horizontal stack
-- **ZStack:** Overlay stack
+- **VStack:** Vertical Stack
+- **HStack:** Horizontal Stack
+- **ZStack:** Overlay Stack
 - **Spacer:** Spacing within Stacks
 
 ## Installation
@@ -24,7 +24,7 @@ yarn add react-native-stacks
 Import the components you need like this
 
 ```javascript
-import { VStack, HStack, Spacer } from 'react-native-swiftui-stacks';
+import { VStack, Spacer } from 'react-native-swiftui-stacks';
 ```
 
 And display them like this
@@ -51,7 +51,7 @@ vs. SwiftUI...
 ```swift
 var body: some View {
   VStack(alignment: .leading) {
-    Text("Some cool text").font(.title)
+    Text("Some cool text")
     Spacer()
     Button(action: doSomething) {
       Text("Click the cool button")
