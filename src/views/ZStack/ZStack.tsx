@@ -1,44 +1,29 @@
 import React from 'react';
-import {
-  VerticalAlignment,
-  HorizontalAlignment,
-  Frame,
-  Padding,
-} from '../../types/propTypes';
-import { systemColor, UIColor } from '../../utils/colors';
 import { View } from 'react-native';
+import { StackProps } from '../../types';
 import { getPadding } from '../../utils/padding';
 import { getFrame } from '../../utils/frame';
-import { useColorScheme } from '../../hooks/useColorScheme';
-
-type ZStackProps = {
-  background?: string;
-  alignment?: HorizontalAlignment | VerticalAlignment;
-  padding?: Padding;
-  spacing?: number;
-  width?: number;
-  frame?: Frame;
-  cornerRadius?: number;
-  children: React.ReactElement<any> | React.ReactElement<any>[];
-};
 
 export const ZStack = ({
-  background = UIColor.transparent,
+  background,
   cornerRadius = 0,
   padding,
   frame,
+  style,
   children,
-}: ZStackProps) => {
-  const { colorScheme } = useColorScheme();
+}: StackProps) => {
   return (
     <View
-      style={{
-        backgroundColor: systemColor(background, colorScheme),
-        justifyContent: 'center',
-        borderRadius: cornerRadius,
-        ...getFrame(frame),
-        ...getPadding(padding),
-      }}
+      style={[
+        {
+          backgroundColor: background,
+          justifyContent: 'center',
+          borderRadius: cornerRadius,
+          ...getFrame(frame),
+          ...getPadding(padding),
+        },
+        style,
+      ]}
     >
       {React.Children.map(children, (child, i) =>
         React.cloneElement(child, {

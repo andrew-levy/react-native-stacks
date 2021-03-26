@@ -1,43 +1,34 @@
 import React from 'react';
-import { VerticalAlignment, Frame, Padding } from '../../types/propTypes';
-import { systemColor, UIColor } from '../../utils/colors';
 import { FlexAlignType, View } from 'react-native';
+import { HorizontalAlignment, StackProps } from '../../types';
 import { getPadding } from '../../utils/padding';
-import { Alignments } from '../../utils/alignments';
+import { getAlignment } from '../../utils/alignments';
 import { getFrame } from '../../utils/frame';
-import { useColorScheme } from '../../hooks/useColorScheme';
 
-type HStackProps = {
-  background?: string;
-  alignment?: VerticalAlignment;
-  padding?: Padding;
-  spacing?: number | 'stretch';
-  frame?: Frame;
-  cornerRadius?: number;
-  children: React.ReactElement<any> | React.ReactElement<any>[];
-};
-
-export const HStack: React.FC<HStackProps> = ({
-  background = UIColor.transparent,
+export const HStack = ({
+  background,
   spacing,
-  alignment = Alignments.vertical.center,
+  alignment,
   cornerRadius = 0,
   padding,
   frame,
+  style,
   children,
-}) => {
-  const { colorScheme } = useColorScheme();
+}: StackProps) => {
   return (
     <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'center',
-        backgroundColor: systemColor(background, colorScheme),
-        borderRadius: cornerRadius,
-        alignItems: Alignments.vertical[alignment] as FlexAlignType,
-        ...getFrame(frame),
-        ...getPadding(padding),
-      }}
+      style={[
+        {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          backgroundColor: background,
+          borderRadius: cornerRadius,
+          ...getAlignment(alignment, 'vertical'),
+          ...getFrame(frame),
+          ...getPadding(padding),
+        },
+        style,
+      ]}
     >
       {spacing && spacing !== 0
         ? React.Children.map(children, (child) => (

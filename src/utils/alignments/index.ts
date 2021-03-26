@@ -1,4 +1,4 @@
-export const Alignments = {
+const Alignments = {
   horizontal: {
     leading: 'flex-start',
     center: 'center',
@@ -9,4 +9,11 @@ export const Alignments = {
     center: 'center',
     bottom: 'flex-end',
   },
+};
+
+export const getAlignment = (alignment: string, direction: string) => {
+  return {
+    alignItems:
+      Alignments[direction][alignment] || Alignments[direction].center,
+  };
 };
