@@ -24,7 +24,7 @@ yarn add react-native-stacks
 Import the components you need like this
 
 ```javascript
-import { VStack, Spacer } from 'react-native-swiftui-stacks';
+import { VStack, HStack, Spacer } from 'react-native-stacks';
 ```
 
 And display them like this
@@ -33,15 +33,16 @@ And display them like this
 return (
   <VStack
     aligment='leading'
-    background={UIColor.systemGray6}
+    background='white'
     padding={{ leading: 30 }}
     cornerRadius={20}
   >
-    <Text>Some cool text</Text>
+    <Text>Orders</Text>
     <Spacer />
-    <Button onPress={doSomething}>
-      <Text>Click the cool button</Text>
-    </Button>
+    <HStack>
+      <Button onPress={add} title='Add' />
+      <Button onPress={remove} title='Remove' />
+    </HStack>
   </VStack>
 );
 ```
@@ -51,10 +52,15 @@ vs. SwiftUI...
 ```swift
 var body: some View {
   VStack(alignment: .leading) {
-    Text("Some cool text")
+    Text("Orders")
     Spacer()
-    Button(action: doSomething) {
-      Text("Click the cool button")
+    HStack() {
+      Button(action: add) {
+        Text("Add")
+      }
+      Button(action: remove) {
+        Text("Remove")
+      }
     }
   }.background(Color(UIColor.systemGray6))
    .cornerRadius(20)

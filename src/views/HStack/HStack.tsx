@@ -1,6 +1,6 @@
 import React from 'react';
-import { FlexAlignType, View } from 'react-native';
-import { HorizontalAlignment, StackProps } from '../../types';
+import { View } from 'react-native';
+import { StackProps } from '../../types';
 import { getPadding } from '../../utils/padding';
 import { getAlignment } from '../../utils/alignments';
 import { getFrame } from '../../utils/frame';
