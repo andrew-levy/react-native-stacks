@@ -1,33 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
-import { StackProps } from '../../types';
-import { getPadding } from '../../utils/padding';
-import { getAlignment } from '../../utils/alignments';
-import { getFrame } from '../../utils/frame';
+import { View, StyleSheet } from 'react-native';
+import { ALIGNMENT_MAP } from '../../constants';
+import { VStackProps } from '../../types';
 
 export const VStack = ({
-  background,
   spacing,
-  alignment,
-  cornerRadius = 0,
-  padding,
-  frame,
+  alignment = 'center',
   style,
   children,
-}: StackProps) => {
+}: VStackProps) => {
   return (
     <View
-      style={[
-        {
-          backgroundColor: background,
-          justifyContent: 'center',
-          borderRadius: cornerRadius,
-          ...getAlignment(alignment, 'horizontal'),
-          ...getFrame(frame),
-          ...getPadding(padding),
-        },
-        style,
-      ]}
+      style={[styles.vStack, { alignItems: ALIGNMENT_MAP[alignment] }, style]}
     >
       {spacing && spacing !== 0
         ? React.Children.map(children, (child) => (
@@ -41,3 +25,9 @@ export const VStack = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  vStack: {
+    flexDirection: 'column',
+  },
+});

@@ -1,34 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
-import { StackProps } from '../../types';
-import { getPadding } from '../../utils/padding';
-import { getAlignment } from '../../utils/alignments';
-import { getFrame } from '../../utils/frame';
+import { StyleSheet, View } from 'react-native';
+import { ALIGNMENT_MAP } from '../../constants';
+import { HStackProps } from '../../types';
 
 export const HStack = ({
-  background,
   spacing,
-  alignment,
-  cornerRadius = 0,
-  padding,
-  frame,
+  alignment = 'center',
   style,
   children,
-}: StackProps) => {
+}: HStackProps) => {
   return (
     <View
-      style={[
-        {
-          flexDirection: 'row',
-          justifyContent: 'center',
-          backgroundColor: background,
-          borderRadius: cornerRadius,
-          ...getAlignment(alignment, 'vertical'),
-          ...getFrame(frame),
-          ...getPadding(padding),
-        },
-        style,
-      ]}
+      style={[styles.hStack, { alignItems: ALIGNMENT_MAP[alignment] }, style]}
     >
       {spacing && spacing !== 0
         ? React.Children.map(children, (child) => (
@@ -42,3 +25,9 @@ export const HStack = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  hStack: {
+    flexDirection: 'row',
+  },
+});
