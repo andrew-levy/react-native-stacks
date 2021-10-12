@@ -1,6 +1,6 @@
 {
   "name": "react-native-stacks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SwiftUI inspired Stacks and Spacer views",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
