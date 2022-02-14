@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { ZSTACK_ALIGNMENT_MAP } from "../../constants";
+import { AlignmentMap } from "../../constants";
 import { ZStackProps } from "../../types";
 
 export const ZStack = ({
@@ -9,7 +9,7 @@ export const ZStack = ({
   children,
 }: ZStackProps) => {
   return (
-    <View style={[{ ...ZSTACK_ALIGNMENT_MAP[alignment] }, style]}>
+    <View style={[AlignmentMap.zstack[alignment], style]}>
       {React.Children.map(children, (child, i) =>
         React.cloneElement(child, {
           ...child.props,

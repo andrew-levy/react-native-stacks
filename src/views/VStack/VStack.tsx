@@ -1,18 +1,16 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { ALIGNMENT_MAP } from '../../constants';
-import { VStackProps } from '../../types';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { AlignmentMap } from "../../constants";
+import { VStackProps } from "../../types";
 
 export const VStack = ({
   spacing,
-  alignment = 'center',
+  alignment = "center",
   style,
   children,
 }: VStackProps) => {
   return (
-    <View
-      style={[styles.vStack, { alignItems: ALIGNMENT_MAP[alignment] }, style]}
-    >
+    <View style={[styles.vStack, AlignmentMap.vstack[alignment], style]}>
       {spacing && spacing !== 0
         ? React.Children.map(children, (child) => (
             <>
@@ -28,6 +26,6 @@ export const VStack = ({
 
 const styles = StyleSheet.create({
   vStack: {
-    flexDirection: 'column',
+    flexDirection: "column",
   },
 });
