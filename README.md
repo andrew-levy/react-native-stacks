@@ -19,19 +19,19 @@ yarn add react-native-stacks
 ## Usage
 
 ```jsx
-import React from 'react';
-import { Text, Button } from 'react-native';
-import { VStack, HStack, Spacer } from 'react-native-stacks';
+import React from "react";
+import { Text, Button } from "react-native";
+import { VStack, HStack, Spacer } from "react-native-stacks";
 
 function Example() {
   return (
-    <VStack aligment='leading' spacing={20}>
+    <VStack aligmment="leading" spacing={20}>
       <Text>Orders</Text>
       <Spacer />
       <HStack>
-        <Button onPress={add} title='Add' />
+        <Button onPress={add} title="Add" />
         <Spacer />
-        <Button onPress={remove} title='Remove' />
+        <Button onPress={remove} title="Remove" />
       </HStack>
     </VStack>
   );
@@ -157,7 +157,7 @@ Horizontal
 such that,
 
 ```typescript
-type Alignment = 'leading' | 'center' | 'trailing';
+type Alignment = "leading" | "center" | "trailing";
 ```
 
 ---
