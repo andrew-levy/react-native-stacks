@@ -1,6 +1,17 @@
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from "react-native";
 
-type Alignment = 'leading' | 'center' | 'trailing';
+type VStackAlignment = "leading" | "center" | "trailing";
+type HStackAlignment = "top" | "center" | "bottom";
+type ZStackAlignment =
+  | "top"
+  | "center"
+  | "bottom"
+  | "leading"
+  | "trailing"
+  | "topLeading"
+  | "topTrailing"
+  | "bottomLeading"
+  | "bottomTrailing";
 
 type StackProps = {
   spacing?: number;
@@ -9,16 +20,13 @@ type StackProps = {
 };
 
 export type VStackProps = StackProps & {
-  alignment?: Alignment;
+  alignment?: VStackAlignment;
 };
 
 export type HStackProps = StackProps & {
-  alignment?: Alignment;
+  alignment?: HStackAlignment;
 };
 
-export type ZStackProps = Omit<StackProps, 'spacing'> & {
-  alignment?: {
-    vertical: Alignment;
-    horizontal: Alignment;
-  };
+export type ZStackProps = Omit<StackProps, "spacing"> & {
+  alignment?: ZStackAlignment;
 };

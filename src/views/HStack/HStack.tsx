@@ -1,18 +1,16 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { ALIGNMENT_MAP } from '../../constants';
-import { HStackProps } from '../../types';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { AlignmentMap } from "../../constants";
+import { HStackProps } from "../../types";
 
 export const HStack = ({
   spacing,
-  alignment = 'center',
+  alignment = "center",
   style,
   children,
 }: HStackProps) => {
   return (
-    <View
-      style={[styles.hStack, { alignItems: ALIGNMENT_MAP[alignment] }, style]}
-    >
+    <View style={[styles.hStack, AlignmentMap.hstack[alignment], style]}>
       {spacing && spacing !== 0
         ? React.Children.map(children, (child) => (
             <>
@@ -28,6 +26,6 @@ export const HStack = ({
 
 const styles = StyleSheet.create({
   hStack: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 });
