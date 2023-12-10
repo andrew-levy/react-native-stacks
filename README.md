@@ -2,7 +2,7 @@
 
 # react-native-stacks :pancakes:
 
-SwiftUI inspired Stack and Spacer components
+SwiftUI inspired Stack and Spacer components.
 
 ![stacks](/assets/readme-stacks.png?raw=true)
 [Image from Design + Code ](https://designcode.io/swiftui-course)
@@ -66,13 +66,13 @@ struct Example: View {
 
 ### `<VStack />`
 
-A vertical stack
+A vertical stack.
 
 #### Props:
 
 #### `spacing`
 
-The amount of space between each item in the stack
+The amount of space between each item in the stack.
 
 > required: no
 >
@@ -82,29 +82,29 @@ The amount of space between each item in the stack
 
 #### `alignment`
 
-The horizontal alignment for the stack items
-
-- `leading`: left align
-- `center`: center align
-- `trailing`: right align
+The horizontal alignment for the stack items.
 
 > required: no
 >
-> type: `'leading' | 'center' | 'trailing'`
+> type: `VStackAlignment`
 >
 > default: `'center'`
+
+```typescript
+type VStackAlignment = "leading" | "center" | "trailing";
+```
 
 ---
 
 ### `<HStack />`
 
-A horizontal stack
+A horizontal stack.
 
 #### Props:
 
 #### `spacing`
 
-The amount of space between each item in the stack
+The amount of space between each item in the stack.
 
 > required: no
 >
@@ -114,56 +114,53 @@ The amount of space between each item in the stack
 
 #### `alignment`
 
-The vertical alignment for the stack items
-
-- `leading`: top align
-- `center`: center align
-- `trailing`: bottom align
+The vertical alignment for the stack items.
 
 > required: no
 >
-> type: `'leading' | 'center' | 'trailing'`
+> type: `HStackAlignment`
 >
 > default: `'center'`
+
+```typescript
+type HStackAlignment = "top" | "center" | "bottom";
+```
 
 ---
 
 ### `<ZStack />`
 
-An overlay stack
+An overlay stack.
 
 #### Props:
 
 #### `alignment`
 
-The horizontal and vertical alignment for the stack items. Since a ZStack overlays items on top of one another, we are able to align them both vertically and horizontally:
+The horizontal and vertical alignment for the stack items. Since a ZStack overlays items on top of one another, we are able to align them both vertically and horizontally.
 
-Veritcal
-
-- `leading`: top align
-- `center`: center align
-- `trailing`: bottom align
-
-Horizontal
-
-- `leading`: left align
-- `center`: center align
-- `trailing`: right align
 
 > required: no
 >
-> type: `{ vertical: Alignment, horizontal: Alignment }`
+> type: `ZStackAlignment`
 >
-> default: `{ vertical: 'center', horizontal: 'center' }`
+> default: `'center'`
 
-such that,
 
 ```typescript
-type Alignment = "leading" | "center" | "trailing";
+type ZStackAlignment =
+  | "top"
+  | "center"
+  | "bottom"
+  | "leading"
+  | "trailing"
+  | "topLeading"
+  | "topTrailing"
+  | "bottomLeading"
+  | "bottomTrailing";
 ```
 
 ---
 
 ### `<Spacer />`
 
-A component to provide space between stack items. Adding a Spacer to the bottom of a stack will shift all of the previous stack items up, and opposite for the top. Adding a Spacer between views in a stack will push them apart.
+A component to provide space between stack items. Spacers will fill the available space between components.
